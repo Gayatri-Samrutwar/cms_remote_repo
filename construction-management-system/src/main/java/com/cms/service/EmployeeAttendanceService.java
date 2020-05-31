@@ -19,23 +19,6 @@ public class EmployeeAttendanceService {
 	
 	@Autowired
 	private EmployeeAttendanceRepository employeeAttendanceRepository;
-	
-	public double calculateSalary()
-	{
-		EmployeeDailyAttendance daily = new EmployeeDailyAttendance();
-		EmployeeRate rate = new EmployeeRate();
-		double totalSalary = daily.getPerWeekSalary();
-	   
-	    
-	    if (daily.getTotalHoursWorked() > 40)
-	    	totalSalary = (rate.getFullDayTimeRate() * daily.getTotalHoursWorked())
-	                    + (daily.getTotalHoursWorked() - daily.getStandardHours()) * rate.getOverTimeRate();
-	    else if (daily.getTotalHoursWorked() < 40)
-	    	totalSalary = rate.getFullDayTimeRate() *  daily.getTotalHoursWorked();
-	    else
-	    	totalSalary= rate.getFullDayTimeRate() * daily.getStandardHours();
-	    return totalSalary;
-	}
 
 	
 	public Collection<EmployeeDailyAttendance> findAllEmployeeAttendanceInformation()

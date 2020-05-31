@@ -1,0 +1,1 @@
+insert into Project_Type values(1, 'Construction');
