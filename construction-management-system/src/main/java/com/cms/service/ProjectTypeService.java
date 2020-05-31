@@ -31,6 +31,11 @@ public class ProjectTypeService {
 		}
 		return projectType;
 	}
+	public void saveProjectType(ProjectType projectType)
+	{
+		projectTypeRepository.save(projectType);
+		
+	}
 	
 	public void delete(int id)
 	{

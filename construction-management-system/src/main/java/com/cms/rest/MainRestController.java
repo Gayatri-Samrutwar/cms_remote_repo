@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cms.model.CustomerInfo;
 import com.cms.model.EmployeeInfo;
 import com.cms.model.Project;
+import com.cms.model.ProjectType;
 import com.cms.service.CustomerInfoService;
 import com.cms.service.EmployeeInfoService;
 import com.cms.service.EmployeeRateService;
@@ -45,6 +46,13 @@ public class MainRestController {
 	{
 		
 		return projectService.findAllProjectInformation();
+	}
+	
+	@GetMapping("/findProjectTypeInfo")
+	public Collection<ProjectType> getAllProjectTypeInformation()
+	{
+		
+		return projectTypeService.findAllProjectTypeInformation();
 	}
 	
 	@GetMapping("/findCustomerInfo")
