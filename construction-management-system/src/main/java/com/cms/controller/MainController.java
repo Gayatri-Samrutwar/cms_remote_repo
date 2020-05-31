@@ -50,6 +50,7 @@ public class MainController {
 		return "index";
 	}
 	
+	@GetMapping("employeeTypeRegistrationPage")
 	public String getEmployeeTypeRegistrationPage() {
 		return "employeeRateRegistration";
 	}

@@ -19,7 +19,7 @@
       <a class="nav-link" href="#">Add Employee</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Add Project</a>
+      <a class="nav-link" href="employeeTypeRegistrationPage">Employee Type</a>
     </li>
   </ul>
 </nav>

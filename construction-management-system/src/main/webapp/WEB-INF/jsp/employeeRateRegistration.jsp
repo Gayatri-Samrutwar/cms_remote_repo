@@ -26,23 +26,23 @@
 </body>
 <form action="/registerRate" method = "POST">
 		<div class="form-group">
-  			<label for="employeeType">Employee Type :</label>
- 				<input type="text" class="form-control" value="" id="employeeType" name="employeeType">
+  			<label for="projectTypeId">Employee Type :</label>
+ 				<input type="text" class="form-control" value="" id="projectTypeId" name="projectTypeId">
 		</div>
 		<div class="form-group">
   			<label for="employeeSubType">Employee Sub Type :</label>
  				<input type="text" class="form-control" value="" id="employeeSubType" name="employeeSubType">
 		</div>
 		<div class="form-group">
-  			<label for="halfDayTimeRate">No of Hrs :</label>
+  			<label for="halfDayTimeRate">Half Day Rate :</label>
  				<input type="number" class="form-control" value="" id="halfDayTimeRate" name="halfDayTimeRate">
 		</div>
 				<div class="form-group">
-  			<label for="fullDayTimeRate">No of Hrs :</label>
+  			<label for="fullDayTimeRate">Full Day Rate :</label>
  				<input type="number" class="form-control" value="" id="fullDayTimeRate" name="fullDayTimeRate">
 		</div>
 				<div class="form-group">
-  			<label for="overTimeRate">No of Hrs :</label>
+  			<label for="overTimeRate">Over Time Rate :</label>
  				<input type="number" class="form-control" value="" id="overTimeRate" name="overTimeRate">
 		</div>
 </html>
