@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.cms.dao.ProjectTypeRepository;
 import com.cms.model.CustomerInfo;
 import com.cms.model.ProjectType;
 import com.cms.service.CustomerInfoService;

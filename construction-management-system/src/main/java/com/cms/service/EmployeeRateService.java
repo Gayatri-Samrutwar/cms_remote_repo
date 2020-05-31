@@ -35,6 +35,10 @@ public class EmployeeRateService {
 		return employeeRate;
 	}
 	
+	public void saveEmployeeRate(EmployeeRate empRate) {
+		employeeRateRepository.save(empRate);
+	}
+	
 	public void delete(int id)
 	{
 		employeeRateRepository.deleteById(id);;

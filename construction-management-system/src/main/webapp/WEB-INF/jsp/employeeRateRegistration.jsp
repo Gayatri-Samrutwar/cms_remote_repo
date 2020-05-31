@@ -24,4 +24,25 @@
   </ul>
 </nav>
 </body>
+<form action="/registerRate" method = "POST">
+		<div class="form-group">
+  			<label for="employeeType">Employee Type :</label>
+ 				<input type="text" class="form-control" value="" id="employeeType" name="employeeType">
+		</div>
+		<div class="form-group">
+  			<label for="employeeSubType">Employee Sub Type :</label>
+ 				<input type="text" class="form-control" value="" id="employeeSubType" name="employeeSubType">
+		</div>
+		<div class="form-group">
+  			<label for="halfDayTimeRate">No of Hrs :</label>
+ 				<input type="number" class="form-control" value="" id="halfDayTimeRate" name="halfDayTimeRate">
+		</div>
+				<div class="form-group">
+  			<label for="fullDayTimeRate">No of Hrs :</label>
+ 				<input type="number" class="form-control" value="" id="fullDayTimeRate" name="fullDayTimeRate">
+		</div>
+				<div class="form-group">
+  			<label for="overTimeRate">No of Hrs :</label>
+ 				<input type="number" class="form-control" value="" id="overTimeRate" name="overTimeRate">
+		</div>
 </html>

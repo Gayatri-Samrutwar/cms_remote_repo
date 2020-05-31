@@ -1,12 +1,16 @@
 package com.cms.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -24,19 +28,20 @@ public class EmployeeRate implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int rateId;
 	
-	@Column(name="employeeType")
-	private String employeeType;
+	@OneToOne(targetEntity = ProjectType.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "projectTypeId", referencedColumnName="projectTypeId")
+	private ProjectType projectType;
 	
 	@Column(name ="employeeSubType")
 	private String employeeSubType;
 	
-	@Column(name ="halfDayTimmeRate")
-	private float halfDayTimmeRate;
+	@Column(name ="halfDayTimeRate")
+	private BigDecimal halfDayTimeRate;
 	
 	@Column(name ="fullDayTimeRate")
-	private float fullDayTimeRate;
+	private BigDecimal fullDayTimeRate;
 	
 	@Column(name ="overTimeRate")
-	private float overTimeRate;
+	private BigDecimal overTimeRate;
 
 }
