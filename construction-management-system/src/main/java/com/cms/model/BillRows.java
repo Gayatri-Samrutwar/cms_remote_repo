@@ -8,13 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-
 
 @Entity(name ="BillRows")
 @Getter
@@ -27,8 +27,9 @@ public class BillRows implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int rowId;
 	
-	@Column(name="billId")
-	private String billId;
+	@ManyToOne
+    @JoinColumn(name="billId", nullable=false)
+	private Bill bill;
 	
 	@Column(name="rowDescription")
 	private int rowDescription;
