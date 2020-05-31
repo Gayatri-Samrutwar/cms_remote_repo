@@ -11,6 +11,7 @@ import com.cms.dao.CustomerInfoRepository;
 import com.cms.dao.EmployeeInfoRepository;
 import com.cms.model.CustomerInfo;
 import com.cms.model.EmployeeInfo;
+import com.cms.model.ProjectType;
 
 
 
@@ -33,6 +34,11 @@ public class CustomerInfoService {
 		return customerRegistration;
 	}
 	
+	public void saveCustomerInfo(CustomerInfo customerInfo)
+	{
+		customerRepository.save(customerInfo);
+		
+	}
 	public void delete(int id)
 	{
 		customerRepository.deleteById(id);;
