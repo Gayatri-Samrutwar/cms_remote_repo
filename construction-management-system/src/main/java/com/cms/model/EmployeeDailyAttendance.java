@@ -32,12 +32,12 @@ public class EmployeeDailyAttendance implements Serializable {
 	private int attendanceId;
 	
 	@OneToOne(targetEntity = EmployeeInfo.class, cascade = CascadeType.ALL)
-	@JoinColumn(name ="employeeInfo", referencedColumnName = "employeeId")
+	@JoinColumn(name ="employeeId", referencedColumnName = "employeeId")
 	private EmployeeInfo employeeInfo;
 	
 	
 	@OneToOne(targetEntity = Project.class, cascade = CascadeType.ALL)
-	@JoinColumn(name ="project", referencedColumnName = "projectId")
+	@JoinColumn(name ="projectId", referencedColumnName = "projectId")
 	private Project project;
 	
 	@Column(name ="date")

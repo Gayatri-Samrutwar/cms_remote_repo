@@ -18,7 +18,7 @@ import lombok.ToString;
 
 
 
-@Entity(name ="CustomerInformation")
+@Entity(name ="CustomerInfo")
 @Getter
 @Setter
 @EqualsAndHashCode

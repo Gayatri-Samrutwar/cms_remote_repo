@@ -13,7 +13,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity(name ="EmployeeRateList")
+@Entity(name ="EmployeeRate")
 @Getter
 @Setter
 @EqualsAndHashCode

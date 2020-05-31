@@ -21,28 +21,23 @@ import lombok.ToString;
 
 
 
-@Entity(name ="Bill")
+@Entity(name ="BillStatement")
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-public class Bill implements Serializable {
+public class BillStatement implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String billId;
 	
-	
-	//map project with project Id
-	@OneToOne(targetEntity=EmployeeRate.class, cascade = CascadeType.ALL)
+	@OneToOne(targetEntity=Project.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "projectId", referencedColumnName = "projectId")
-	Project project;
+	private Project project;
 	
 	@Column(name="billDescription")
 	private int rowDescription;
-	
-	@OneToMany(mappedBy="BillRows")
-	private Set<BillRows> billRows;
 	
 	@Column(name ="totalBill")
 	private BigDecimal totalBill;
@@ -50,6 +45,6 @@ public class Bill implements Serializable {
 	@Column(name="discount")
 	private BigDecimal discount;
 	
-	@Column(name="Final Bill")
+	@Column(name="finalbill")
 	private BigDecimal finalBill;
 }

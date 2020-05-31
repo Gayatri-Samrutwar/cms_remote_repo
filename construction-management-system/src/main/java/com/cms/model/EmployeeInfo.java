@@ -18,7 +18,7 @@ import lombok.ToString;
 
 
 
-@Entity(name ="EmployeeInformation")
+@Entity(name ="EmployeeInfo")
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -39,7 +39,7 @@ public class EmployeeInfo implements Serializable {
 	private String employeeAddress;
 	
 	@OneToOne(targetEntity=EmployeeRate.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "employee_Rate", referencedColumnName = "rateId")
+	@JoinColumn(name = "rateId", referencedColumnName = "rateId")
 	private EmployeeRate employeeRate;
 
 }

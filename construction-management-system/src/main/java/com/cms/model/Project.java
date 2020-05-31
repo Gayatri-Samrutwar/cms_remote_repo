@@ -49,7 +49,7 @@ public class Project implements Serializable {
 	private String projectLocation;
 	
 	@OneToOne(targetEntity = ProjectType.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "projectType", referencedColumnName="projectTypeId")
+	@JoinColumn(name = "projectTypeId", referencedColumnName="projectTypeId")
 	private ProjectType projectType;
 	
 	
