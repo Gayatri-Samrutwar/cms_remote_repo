@@ -20,13 +20,6 @@ import lombok.ToString;
 @ToString
 public class EmployeeRate implements Serializable {
 	
-	
-	
-	
-	
-	
-	
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int rateId;
