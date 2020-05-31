@@ -43,8 +43,14 @@ public class EmployeeDailyAttendance implements Serializable {
 	@Column(name ="date")
 	private LocalDate date;
 	
-	@Column(name = "perWeekSalary")
-	private BigDecimal perWeekSalary;
+	@Column(name = "totalHoursWorked")
+	private double totalHoursWorked;
+	
+	@Column(name ="standardHours")
+	private double standardHours;
+	
+	@Column(name="perWeekSalary")
+	private double perWeekSalary;
 	
 	@Column(name ="description")
 	private String description;
