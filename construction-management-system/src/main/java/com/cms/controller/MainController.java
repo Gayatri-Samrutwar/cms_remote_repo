@@ -49,4 +49,8 @@ public class MainController {
 		customerInfoService.saveCustomerInfo(customerInfo);
 		return "index";
 	}
+	
+	public String getEmployeeTypeRegistrationPage() {
+		return "employeeRateRegistration";
+	}
 }
