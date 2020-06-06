@@ -12,20 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 @Entity(name ="BillStatement")
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
+@Data
 public class BillStatement implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String billId;
 	
 	@OneToOne(targetEntity=Project.class, cascade = CascadeType.ALL)

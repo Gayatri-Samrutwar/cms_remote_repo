@@ -11,6 +11,6 @@ import com.cms.model.EmployeeInfo;
 
 
 @Repository
-public interface EmployeeInfoRepository extends CrudRepository<EmployeeInfo, Integer>{
+public interface EmployeeInfoRepository extends CrudRepository<EmployeeInfo, String>{
 
 }

@@ -12,7 +12,7 @@ public class ProjectTypeDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int projectTypeId;
+	private String projectTypeId;
 	
 	private String projectTypeName;
 	

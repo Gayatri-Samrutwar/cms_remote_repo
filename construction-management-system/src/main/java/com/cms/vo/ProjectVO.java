@@ -9,7 +9,7 @@ public class ProjectVO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int projectId;
+	private String projectId;
 	
 	private String projectName;
 	

@@ -7,6 +7,6 @@ import com.cms.model.ProjectType;
 
 
 @Repository
-public interface ProjectTypeRepository extends CrudRepository<ProjectType, Integer>{
+public interface ProjectTypeRepository extends CrudRepository<ProjectType, String>{
 
 }

@@ -7,6 +7,6 @@ import com.cms.model.EmployeeRate;
 
 
 @Repository
-public interface EmployeeRateRepository extends CrudRepository<EmployeeRate, Integer>{
+public interface EmployeeRateRepository extends CrudRepository<EmployeeRate, String>{
 
 }

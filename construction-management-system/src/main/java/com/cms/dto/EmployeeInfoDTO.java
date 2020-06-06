@@ -14,7 +14,7 @@ public class EmployeeInfoDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int employeeId;
+	private String employeeId;
 	
 	private String employeeName;
 	

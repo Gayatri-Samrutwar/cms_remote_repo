@@ -10,6 +10,6 @@ import com.cms.model.EmployeeDailyAttendance;
 
 
 @Repository
-public interface EmployeeAttendanceRepository extends CrudRepository<EmployeeDailyAttendance, Integer>{
+public interface EmployeeAttendanceRepository extends CrudRepository<EmployeeDailyAttendance, String>{
 
 }

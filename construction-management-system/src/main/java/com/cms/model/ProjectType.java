@@ -8,21 +8,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 @Entity(name="ProjectType")
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
+@Data
 public class ProjectType implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private int projectTypeId;
+	
 	
 	@Column(name ="projectTypeName")
 	private String projectTypeName;

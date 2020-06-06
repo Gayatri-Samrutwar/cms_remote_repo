@@ -5,25 +5,16 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 @Entity(name ="BillRows")
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
+@Data
 public class BillRows implements Serializable {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int rowId;
+	private String rowId;
 	
 	@Column(name="rowDescription")
 	private int rowDescription;

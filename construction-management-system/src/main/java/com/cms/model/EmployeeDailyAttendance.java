@@ -1,7 +1,6 @@
 package com.cms.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
@@ -13,23 +12,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 
 @Entity(name = "EmployeeDailyAttendance")
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
+@Data
 public class EmployeeDailyAttendance implements Serializable {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int attendanceId;
+	private String attendanceId;
 	
 	@OneToOne(targetEntity = EmployeeInfo.class, cascade = CascadeType.ALL)
 	@JoinColumn(name ="employeeId", referencedColumnName = "employeeId")

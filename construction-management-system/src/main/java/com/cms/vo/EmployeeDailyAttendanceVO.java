@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class EmployeeDailyAttendanceVO implements Serializable {
 	
-	private int attendanceId;
+	private String attendanceId;
 	
 	private String employeId;
 		

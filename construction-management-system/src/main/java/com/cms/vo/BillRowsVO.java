@@ -13,7 +13,7 @@ public class BillRowsVO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int rowId;
+	private String rowId;
 	
 	private int rowDescription;
 	

@@ -19,10 +19,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity(name= "Project")
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
+@Data
 public class Project implements Serializable {
 	
 	@Id
