@@ -37,7 +37,7 @@ public class EmployeeAttendanceService {
 		return employeeAttendanceInfo;
 	}
 	
-	public void delete(int id)
+	public void delete(String id)
 	{
 		employeeAttendanceRepository.deleteById(id);;
 	}

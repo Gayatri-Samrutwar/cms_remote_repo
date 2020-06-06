@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cms.dao.ProjectRepository;
-import com.cms.model.ContractType;
 import com.cms.model.Project;
 
 
@@ -35,7 +34,7 @@ public class ProjectService {
 		return project;
 	}
 	
-	public void delete(int id)
+	public void delete(String id)
 	{
 		projectRepository.deleteById(id);;
 	}

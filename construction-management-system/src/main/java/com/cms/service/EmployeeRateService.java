@@ -39,7 +39,7 @@ public class EmployeeRateService {
 		employeeRateRepository.save(empRate);
 	}
 	
-	public void delete(int id)
+	public void delete(String id)
 	{
 		employeeRateRepository.deleteById(id);;
 	}
