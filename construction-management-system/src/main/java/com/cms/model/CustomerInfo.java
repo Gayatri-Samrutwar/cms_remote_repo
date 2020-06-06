@@ -6,12 +6,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import lombok.Getter;
+import lombok.Data;
 
 
 
 @Entity(name ="CustomerInfo")
-@Getter
+@Data
 public class CustomerInfo implements Serializable {
 	
 	@Id
