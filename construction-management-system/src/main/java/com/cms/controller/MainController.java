@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.cms.model.CustomerInfo;
-import com.cms.model.ProjectType;
 import com.cms.service.CustomerInfoService;
 import com.cms.service.ProjectTypeService;
+import com.cms.vo.ProjectTypeVO;
 
 @Controller
 public class MainController {
@@ -31,9 +31,9 @@ public class MainController {
 	}
 	
 	@PostMapping("/projectTypeRegistrationurl")
-	public String projectType(ProjectType projectType) {
-	
-		projectTypeService.saveProjectType(projectType);
+	public String projectType(ProjectTypeVO projectType) {
+		System.out.println(projectType);
+		//projectTypeService.saveProjectType(projectType);
 		return "index";
 	}
 	
