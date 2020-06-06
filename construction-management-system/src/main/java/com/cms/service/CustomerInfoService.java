@@ -8,10 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cms.dao.CustomerInfoRepository;
-import com.cms.dao.EmployeeInfoRepository;
+import com.cms.dto.CustomerInfoDTO;
 import com.cms.model.CustomerInfo;
-import com.cms.model.EmployeeInfo;
-import com.cms.model.ProjectType;
+import com.cms.util.ObjectMapper;
 
 
 
@@ -22,23 +21,28 @@ public class CustomerInfoService {
 	@Autowired
 	private CustomerInfoRepository customerRepository;
 	
-	public Collection<CustomerInfo> findAllCustomerInformation()
+	
+	
+	public Collection<CustomerInfoDTO> findAllCustomerInformation()
 	{
-		List<CustomerInfo> customerRegistration = new ArrayList<CustomerInfo>();
+		List<CustomerInfoDTO> customerRegistration = new ArrayList<CustomerInfoDTO>();
 		
 		for(CustomerInfo customerInfo : customerRepository.findAll())
 		{
-			
-			customerRegistration.add(customerInfo);
+			customerRegistration.add(ObjectMapper.modelToDto(customerInfo));
 		}
 		return customerRegistration;
 	}
 	
-	public void saveCustomerInfo(CustomerInfo customerInfo)
+	public void saveCustomerInfo(CustomerInfoDTO customerInfo)
 	{
-		customerRepository.save(customerInfo);
-		
+		customerRepository.save(ObjectMapper.dtoToModel(customerInfo));
 	}
+	
+	public CustomerInfoDTO findCustomerInformationById(String customerId) {
+		return ObjectMapper.modelToDto(customerRepository.findById(customerId).orElse(null));
+	}
+	
 	public void delete(int id)
 	{
 		customerRepository.deleteById(id);;
