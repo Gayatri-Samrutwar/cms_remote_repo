@@ -66,8 +66,9 @@ public class MainController {
 	@PostMapping(URI.CUSTOMER_INFORMATION_SAVE)
 	public ModelAndView saveCustomerInformation(CustomerInfoVO customerInfo) {
 
+		customerInfo.setCustomerId(""+(customerInfo.getCustomerName()+customerInfo.getCustomerMobileNo()).hashCode());
 		ModelAndView mv = new ModelAndView("customerInformation");
-		// customerInfoService.updateTicket(customerInfo);
+		customerInfoService.saveCustomerInfo(ObjectMapper.voToDto(customerInfo));
 		mv.addObject("customerInformation", customerInfoService.findAllCustomerInformation());
 		mv.addObject("mode", "CUSTOMER_VIEW");
 		return mv;
