@@ -43,7 +43,7 @@ public class CustomerInfoService {
 		return ObjectMapper.modelToDto(customerRepository.findById(customerId).orElse(null));
 	}
 	
-	public void delete(int id)
+	public void delete(String id)
 	{
 		customerRepository.deleteById(id);;
 	}
