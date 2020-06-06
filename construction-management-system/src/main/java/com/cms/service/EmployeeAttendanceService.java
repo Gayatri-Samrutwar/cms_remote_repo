@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.cms.dao.EmployeeAttendanceRepository;
 import com.cms.model.EmployeeDailyAttendance;
-import com.cms.model.EmployeeRate;
 
 
 
@@ -24,9 +23,6 @@ public class EmployeeAttendanceService {
 	public Collection<EmployeeDailyAttendance> findAllEmployeeAttendanceInformation()
 	
 	{
-		
-	    
-	
 		List<EmployeeDailyAttendance> employeeAttendanceInfo = new ArrayList<EmployeeDailyAttendance>();
 		
 		for(EmployeeDailyAttendance employeeAttendance : employeeAttendanceRepository.findAll())

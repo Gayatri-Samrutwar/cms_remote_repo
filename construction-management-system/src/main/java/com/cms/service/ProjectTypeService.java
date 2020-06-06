@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cms.dao.ProjectTypeRepository;
-import com.cms.model.Project;
 import com.cms.model.ProjectType;
 
 
