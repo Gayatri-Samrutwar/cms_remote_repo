@@ -23,7 +23,7 @@
     </li> -->
     
     <li class="nav-item">
-      <a class="nav-link" href="<%=URI.CUSTOMER_INFORMATION_PAGE%>">Customer Information</a>
+      <a class="nav-link" href="<%=URI.CUSTOMER_INFORMATION_VIEW%>">Customer Information</a>
     </li>
   </ul>
 </nav>

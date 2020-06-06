@@ -47,7 +47,7 @@ public class MainController {
 		return "index";
 	}
 
-	@GetMapping(URI.CUSTOMER_INFORMATION_PAGE)
+	@GetMapping(URI.CUSTOMER_INFORMATION_VIEW)
 	public ModelAndView getCustomerInformation() {
 		ModelAndView mv = new ModelAndView("customerInformation");
 		mv.addObject("customerInformation", customerInfoService.findAllCustomerInformation().stream()
@@ -63,7 +63,7 @@ public class MainController {
 	 * customerInfoService.saveCustomerInfo(customerInfo); return "index"; }
 	 */
 
-	@PostMapping("/saveCustomerInformation")
+	@PostMapping(URI.CUSTOMER_INFORMATION_SAVE)
 	public ModelAndView saveCustomerInformation(CustomerInfoVO customerInfo) {
 
 		ModelAndView mv = new ModelAndView("customerInformation");
@@ -73,7 +73,7 @@ public class MainController {
 		return mv;
 	}
 	
-	@GetMapping("/addCustomerInformation")
+	@GetMapping(URI.CUSTOMER_INFORMATION_ADD)
 	public ModelAndView addTicket() {
 		ModelAndView mv = new ModelAndView("index");
 		mv.addObject("mode", "CUSTOMER_INFORMATION_ADD");
@@ -81,7 +81,7 @@ public class MainController {
 	}
 	
 
-	@GetMapping("/editCustomerInformation")
+	@GetMapping(URI.CUSTOMER_INFORMATION_EDIT)
 	public ModelAndView editCustomerInformation(@RequestParam String customerId) {
 		ModelAndView mv = new ModelAndView("customerInformation");
 		mv.addObject("customerInfo", customerInfoService.findCustomerInformationById(customerId));
@@ -90,7 +90,7 @@ public class MainController {
 	}
 	
 	
-	@GetMapping("/deleteCustomerInformation")
+	@GetMapping(URI.CUSTOMER_INFORMATION_DELETE)
 	public ModelAndView deleteCustomerInformation(@RequestParam String customerId) {
 		ModelAndView mv = new ModelAndView("customerInformation");
 		customerInfoService.delete(customerId);

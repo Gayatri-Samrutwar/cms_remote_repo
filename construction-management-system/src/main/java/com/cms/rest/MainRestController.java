@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cms.dto.CustomerInfoDTO;
+import com.cms.dto.EmployeeInfoDTO;
 import com.cms.model.CustomerInfo;
 import com.cms.model.EmployeeInfo;
 import com.cms.model.Project;
@@ -36,7 +37,7 @@ public class MainRestController {
 	private CustomerInfoService customerService;
 	
 	@GetMapping("/findAllEmployeeInfo")
-	public Collection<EmployeeInfo> getAllEmployeeInformation()
+	public Collection<EmployeeInfoDTO> getAllEmployeeInformation()
 	{
 		
 		return employeeService.findAllEmployeeInformation();

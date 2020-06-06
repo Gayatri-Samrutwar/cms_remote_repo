@@ -17,10 +17,10 @@
   <ul class="navbar-nav">
     
     <li class="nav-item">
-      <a class="nav-link" href=" <%=URI.CUSTOMER_INFORMATION_VIEW%>">Customer Information</a>
+      <a class="nav-link" href=" <%=%>">Employee Information</a>
     </li>
         <li class="nav-item">
-      <a class="nav-link" href="<%=URI.CUSTOMER_INFORMATION_ADD%>">Add Customer Information</a>
+      <a class="nav-link" href="/addEmployeeInformation">Add Employee Information</a>
     </li>
   </ul>
   
@@ -39,29 +39,29 @@
 
 <c:choose>
          
-         <c:when test = "${mode == 'CUSTOMER_VIEW'}">
+         <c:when test = "${mode == 'EMPLOYEE_VIEW'}">
            <table class="table table-striped">
    				<thead>
    					<tr>
-   					  	<th>Customer Id</th>
-    					<th>Customer Name</th>
+   					  	<th>Employee Id</th>
+    					<th>Employee Name</th>
      					<th>Mobile Number</th>
      					<th>Address</th>
-     					<th>Occupation</th>
+     					<th>Employee Rate Id</th>
      					<th>Edit</th>
      					<th>Delete</th>
    					</tr>
  				</thead>
  				<tbody>
- 					<c:forEach var="customerInfo" items = "${customerInformation}">
+ 					<c:forEach var="employeeInfo" items = "${employeeInformation}">
     				<tr>
-						<td>${customerInfo.customerId}</td>
-    					<td>${customerInfo.customerName}</td>
-     					<td>${customerInfo.customerMobileNo}</td>
-     					<td>${customerInfo.customerAddress}</td>
-     					<td>${customerInfo.occupation}</td>
+						<td>${employeeInfo.employeeId}</td>
+    					<td>${employeeInfo.employeeName}</td>
+     					<td>${employeeInfo.employeeMobileNo}</td>
+     					<td>${employeeInfo.employeeAddress}</td>
+     					<td>${employeeInfo.employeeRateId}</td>
      					<td>
-     						<a href="<%=URI.CUSTOMER_INFORMATION_EDIT%>?customerId=${customerInfo.customerId}">
+     						<a href="edit?id=${employeeInfo.id}">
           						 <svg class="bi bi-pencil" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   								<path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"></path>
   								<path fill-rule="evenodd" d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"></path>
@@ -69,7 +69,7 @@
         					</a>
         				</td>
         				<td>
-        					<a href="<%=URI.CUSTOMER_INFORMATION_DELETE%>?customerId=${customerInfo.customerId}">
+        					<a href="delete?id=${employeeInfo.id}">
         						<svg class="bi bi-trash-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   								<path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
 								</svg>
@@ -82,26 +82,26 @@
          </c:when>
 
          
-          <c:when test = "${mode == 'CUSTOMER_INFORMATION_EDIT'}">
-             <form action="<%=URI.CUSTOMER_INFORMATION_VIEW%>" method="POST">
-             	<input type="hidden" class="form-control" value="${customerInfo.customerId}"  id="customerId" name="customerId">
+          <c:when test = "${mode == 'EMPLOYEE_INFORMATION_EDIT'}">
+             <form action="saveEmployeeInformation" method="POST">
+             	<input type="hidden" class="form-control" value="${employeeInfo.id}"  id="id" name="id">
   			
     			<div class="form-group">
-    	  			<label for="customerName">Customer Name :</label>
-      				<input type="text" class="form-control" value="${customerInfo.customerName}" id="customerName" name="customerName">
+    	  			<label for="employeeName">Employee Name :</label>
+      				<input type="text" class="form-control" value="${employeeInfo.employeeName}" id="employeeName" name="employeeName">
     			</div>
     			<div class="form-group">
-    	  			<label for="customerMobileNo">Customer Mobile Number :</label>
-      				<input type="number" class="form-control" value="${customerInfo.customerMobileNo}" id="customerMobileNo" name="customerMobileNo">
+    	  			<label for="employeeMobileNo">Employee Mobile Number :</label>
+      				<input type="number" class="form-control" value="${employeeInfo.employeeMobileNo}" id="employeeMobileNo" name="employeeMobileNo">
     			</div>
 
 				<div class="form-group">
-    	  			<label for="customerAddress">Customer Address :</label>
-      				<input type="text" class="form-control" value="${customerInfo.customerAddress}" id="customerAddress" name="customerAddress">
+    	  			<label for="employeeAddress">Employee Address :</label>
+      				<input type="text" class="form-control" value="${employeeInfo.employeeAddress}" id="employeeAddress" name="employeeAddress">
     			</div>
     			<div class="form-group">
-    	  			<label for="occupation">Occupation :</label>
-      				<input type="text" class="form-control" value="${customerInfo.occupation}" id="occupation" name="occupation">
+    	  			<label for="employeeRateId">Employee Rate Id :</label>
+      				<input type="text" class="form-control" value="${employeeInfo.employeeRateId}" id="employeeRateID" name="employeeRateId">
     			</div>
     			
     			<button type="submit" class="btn btn-primary">Submit</button>
@@ -110,8 +110,8 @@
      
          
          
-    <c:when test = "${mode == 'CUSTOMER_INFORMATION_ADD'}">
-             <form action="<%=URI.CUSTOMER_INFORMATION_VIEW%>" method="POST">
+  <%--  <c:when test = "${mode == 'CUSTOMER_INFORMATION_ADD}">
+             <form action="saveCustomerInformation" method="POST">
   				
     			<div class="form-group">
       <label for="customerName">Customer Name :</label>
@@ -137,7 +137,7 @@
     			
     			<button type="submit" class="btn btn-primary">Submit</button>
   			</form>
-         </c:when> 
+         </c:when> --%>
          
     </c:choose> 
  <!--  <h2>Customer Registration</h2>
