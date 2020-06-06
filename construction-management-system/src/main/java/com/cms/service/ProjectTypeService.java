@@ -37,7 +37,7 @@ public class ProjectTypeService {
 		
 	}
 	
-	public void delete(int id)
+	public void delete(String id)
 	{
 		projectTypeRepository.deleteById(id);;
 	}
