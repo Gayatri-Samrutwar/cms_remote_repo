@@ -49,7 +49,7 @@ public class MainController {
 
 	@GetMapping(URI.CUSTOMER_INFORMATION_VIEW)
 	public ModelAndView getCustomerInformation() {
-		ModelAndView mv = new ModelAndView("customerInformation");
+		ModelAndView mv = new ModelAndView(URI.CUSTOMER_INFORMATION_JSP);
 		mv.addObject("customerInformation", customerInfoService.findAllCustomerInformation().stream()
 				.map(x -> ObjectMapper.dtoToVo(x)).collect(Collectors.toList()));
 		mv.addObject("mode", "CUSTOMER_VIEW");
@@ -65,26 +65,34 @@ public class MainController {
 
 	@PostMapping(URI.CUSTOMER_INFORMATION_SAVE)
 	public ModelAndView saveCustomerInformation(CustomerInfoVO customerInfo) {
-
 		customerInfo.setCustomerId(""+(customerInfo.getCustomerName()+customerInfo.getCustomerMobileNo()).hashCode());
-		ModelAndView mv = new ModelAndView("customerInformation");
+		ModelAndView mv = new ModelAndView(URI.CUSTOMER_INFORMATION_JSP);
 		customerInfoService.saveCustomerInfo(ObjectMapper.voToDto(customerInfo));
 		mv.addObject("customerInformation", customerInfoService.findAllCustomerInformation());
 		mv.addObject("mode", "CUSTOMER_VIEW");
 		return mv;
 	}
 	
-	@GetMapping(URI.CUSTOMER_INFORMATION_ADD)
+	@PostMapping(URI.CUSTOMER_INFORMATION_UPDATE)
+	public ModelAndView updateCustomerInformation(CustomerInfoVO customerInfo) {
+		ModelAndView mv = new ModelAndView(URI.CUSTOMER_INFORMATION_JSP);
+		customerInfoService.saveCustomerInfo(ObjectMapper.voToDto(customerInfo));
+		mv.addObject("customerInformation", customerInfoService.findAllCustomerInformation());
+		mv.addObject("mode", "CUSTOMER_VIEW");
+		return mv;
+	}
+	
+	@GetMapping(URI.CUSTOMER_INFORMATION_ADD_PAGE)
 	public ModelAndView addTicket() {
-		ModelAndView mv = new ModelAndView("index");
+		ModelAndView mv = new ModelAndView(URI.CUSTOMER_INFORMATION_JSP);
 		mv.addObject("mode", "CUSTOMER_INFORMATION_ADD");
 		return mv;
 	}
 	
 
-	@GetMapping(URI.CUSTOMER_INFORMATION_EDIT)
+	@GetMapping(URI.CUSTOMER_INFORMATION_EDIT_PAGE)
 	public ModelAndView editCustomerInformation(@RequestParam String customerId) {
-		ModelAndView mv = new ModelAndView("customerInformation");
+		ModelAndView mv = new ModelAndView(URI.CUSTOMER_INFORMATION_JSP);
 		mv.addObject("customerInfo", customerInfoService.findCustomerInformationById(customerId));
 		mv.addObject("mode", "CUSTOMER_INFORMATION_EDIT");
 		return mv;
@@ -93,7 +101,7 @@ public class MainController {
 	
 	@GetMapping(URI.CUSTOMER_INFORMATION_DELETE)
 	public ModelAndView deleteCustomerInformation(@RequestParam String customerId) {
-		ModelAndView mv = new ModelAndView("customerInformation");
+		ModelAndView mv = new ModelAndView(URI.CUSTOMER_INFORMATION_JSP);
 		customerInfoService.delete(customerId);
 		mv.addObject("customerInfo", customerInfoService.findAllCustomerInformation());
 		mv.addObject("mode", "CUSTOMER_VIEW");

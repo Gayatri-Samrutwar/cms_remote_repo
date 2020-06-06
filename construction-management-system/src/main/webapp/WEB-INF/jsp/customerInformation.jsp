@@ -20,7 +20,7 @@
       <a class="nav-link" href=" <%=URI.CUSTOMER_INFORMATION_VIEW%>">Customer Information</a>
     </li>
         <li class="nav-item">
-      <a class="nav-link" href="<%=URI.CUSTOMER_INFORMATION_ADD%>">Add Customer Information</a>
+      <a class="nav-link" href="<%=URI.CUSTOMER_INFORMATION_ADD_PAGE%>">Add Customer Information</a>
     </li>
   </ul>
   
@@ -61,7 +61,7 @@
      					<td>${customerInfo.customerAddress}</td>
      					<td>${customerInfo.occupation}</td>
      					<td>
-     						<a href="<%=URI.CUSTOMER_INFORMATION_EDIT%>?customerId=${customerInfo.customerId}">
+     						<a href="<%=URI.CUSTOMER_INFORMATION_EDIT_PAGE%>?customerId=${customerInfo.customerId}">
           						 <svg class="bi bi-pencil" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   								<path fill-rule="evenodd" d="M11.293 1.293a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1 0 1.414l-9 9a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391l9-9zM12 2l2 2-9 9-3 1 1-3 9-9z"></path>
   								<path fill-rule="evenodd" d="M12.146 6.354l-2.5-2.5.708-.708 2.5 2.5-.707.708zM3 10v.5a.5.5 0 0 0 .5.5H4v.5a.5.5 0 0 0 .5.5H5v.5a.5.5 0 0 0 .5.5H6v-1.5a.5.5 0 0 0-.5-.5H5v-.5a.5.5 0 0 0-.5-.5H3z"></path>
@@ -83,7 +83,7 @@
 
          
           <c:when test = "${mode == 'CUSTOMER_INFORMATION_EDIT'}">
-             <form action="<%=URI.CUSTOMER_INFORMATION_VIEW%>" method="POST">
+             <form action="<%=URI.CUSTOMER_INFORMATION_UPDATE%>" method="POST">
              	<input type="hidden" class="form-control" value="${customerInfo.customerId}"  id="customerId" name="customerId">
   			
     			<div class="form-group">
@@ -111,7 +111,7 @@
          
          
     <c:when test = "${mode == 'CUSTOMER_INFORMATION_ADD'}">
-             <form action="<%=URI.CUSTOMER_INFORMATION_VIEW%>" method="POST">
+             <form action="<%=URI.CUSTOMER_INFORMATION_SAVE%>" method="POST">
   				
     			<div class="form-group">
       <label for="customerName">Customer Name :</label>
