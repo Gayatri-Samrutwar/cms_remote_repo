@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cms.dto.CustomerInfoDTO;
 import com.cms.model.CustomerInfo;
 import com.cms.model.EmployeeInfo;
 import com.cms.model.Project;
@@ -56,7 +57,7 @@ public class MainRestController {
 	}
 	
 	@GetMapping("/findCustomerInfo")
-	public Collection<CustomerInfo> getAllCustomerInformation()
+	public Collection<CustomerInfoDTO> getAllCustomerInformation()
 	{
 		
 		return customerService.findAllCustomerInformation();

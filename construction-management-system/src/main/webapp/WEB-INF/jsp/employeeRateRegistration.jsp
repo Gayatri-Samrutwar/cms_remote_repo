@@ -16,7 +16,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav">
     <li class="nav-item active">
-      <a class="nav-link" href="#">Add Employee</a>
+      <a class="nav-link" href="#">Add Employee Rate</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Add Project</a>
@@ -33,6 +33,7 @@
   			<label for="employeeSubType">Employee Sub Type :</label>
  				<input type="text" class="form-control" value="" id="employeeSubType" name="employeeSubType">
 		</div>
+		
 		<div class="form-group">
   			<label for="halfDayTimeRate">Half Day Rate :</label>
  				<input type="number" class="form-control" value="" id="halfDayTimeRate" name="halfDayTimeRate">

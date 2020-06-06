@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cms.service.CustomerInfoService;
+import com.cms.service.EmployeeInfoService;
 import com.cms.service.ProjectTypeService;
+import com.cms.util.ObjectMapper;
 import com.cms.util.URI;
 import com.cms.vo.CustomerInfoVO;
+import com.cms.vo.EmployeeInfoVO;
 import com.cms.vo.ProjectTypeVO;
-import com.cms.util.ObjectMapper;
 
 @Controller
 public class MainController {
@@ -25,6 +27,9 @@ public class MainController {
 	@Autowired
 	private CustomerInfoService customerInfoService;
 
+	@Autowired
+	private EmployeeInfoService employeeInfoService;
+	
 	@GetMapping("/")
 	public String init() {
 		return "index";
@@ -58,26 +63,74 @@ public class MainController {
 	 * customerInfoService.saveCustomerInfo(customerInfo); return "index"; }
 	 */
 
-	@PostMapping("/save")
-	public ModelAndView updateTicket(CustomerInfoVO customerInfo) {
+	@PostMapping("/saveCustomerInformation")
+	public ModelAndView saveCustomerInformation(CustomerInfoVO customerInfo) {
 
-		ModelAndView mv = new ModelAndView("redirect: URI.CUSTOMER_INFORMATION_PAGE");
-		// customerInfoService.updateTicket(customerInfo);
-		mv.addObject("tickets", customerInfoService.findAllCustomerInformation());
-		mv.addObject("mode", "TICKET_VIEW");
-		return mv;
-	}
-
-	@GetMapping("/edit")
-	public ModelAndView editCustomerInformation(@RequestParam int id) {
 		ModelAndView mv = new ModelAndView("customerInformation");
-		// mv.addObject("customerInfo", Utils.copy(customerInfoService.findTicket(id)));
-		mv.addObject("mode", "CUSTOMER-INFORMATION_EDIT");
+		// customerInfoService.updateTicket(customerInfo);
+		mv.addObject("customerInformation", customerInfoService.findAllCustomerInformation());
+		mv.addObject("mode", "CUSTOMER_VIEW");
 		return mv;
 	}
-
-	@GetMapping("employeeTypeRegistrationPage")
-	public String getEmployeeTypeRegistrationPage() {
-		return "employeeRateRegistration";
+	
+	@GetMapping("/addCustomerInformation")
+	public ModelAndView addTicket() {
+		ModelAndView mv = new ModelAndView("index");
+		mv.addObject("mode", "CUSTOMER_INFORMATION_ADD");
+		return mv;
 	}
+	
+
+	@GetMapping("/editCustomerInformation")
+	public ModelAndView editCustomerInformation(@RequestParam String customerId) {
+		ModelAndView mv = new ModelAndView("customerInformation");
+		mv.addObject("customerInfo", customerInfoService.findCustomerInformationById(customerId));
+		mv.addObject("mode", "CUSTOMER_INFORMATION_EDIT");
+		return mv;
+	}
+	
+	
+	@GetMapping("/deleteCustomerInformation")
+	public ModelAndView deleteCustomerInformation(@RequestParam String customerId) {
+		ModelAndView mv = new ModelAndView("customerInformation");
+		customerInfoService.delete(customerId);
+		mv.addObject("customerInfo", customerInfoService.findAllCustomerInformation());
+		mv.addObject("mode", "CUSTOMER_VIEW");
+		return mv;
+	}
+	
+	
+	@GetMapping("/getEmployeeInformation")
+	public ModelAndView getEmployeeInformation() {
+		ModelAndView mv = new ModelAndView("employeeInformation");
+		mv.addObject("employeeInformation", employeeInfoService.findAllEmployeeInformation());
+		mv.addObject("mode", "EMPLOYEE_VIEW");
+		return mv;
+	}
+	
+	@PostMapping("/saveEmployeeInformation")
+	public ModelAndView updateEmployeeInformation(EmployeeInfoVO employeeInfoVO) {
+		
+		ModelAndView mv = new ModelAndView("redirect: URI.CUSTOMER_INFORMATION_PAGE");
+		//customerInfoService.updateTicket(customerInfoVO);
+		mv.addObject("employeeInformation", employeeInfoService.findAllEmployeeInformation());
+		mv.addObject("mode", "EMPLOYEE_INFORMATION_VIEW");
+		return mv;
+	}
+	
+	@GetMapping("/addEmployeeInformation")
+	public ModelAndView addEmployeeInformation() {
+		ModelAndView mv = new ModelAndView("employeeInformation");
+		mv.addObject("mode", "EMPLOYEE_INFORMATION_ADD");
+		return mv;
+	}
+	
+	@GetMapping("/editEmployeeInformation")
+	public ModelAndView editEmployeeInformation(@RequestParam String customerId) {
+		ModelAndView mv = new ModelAndView("employeeInformation");
+		//mv.addObject("employeeInformation", employeeInfoService(customerId));
+		mv.addObject("mode", "EMPLOYEE_INFORMATION_EDIT");
+		return mv;
+	}
+	
 }

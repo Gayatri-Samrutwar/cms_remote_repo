@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" import ="com.cms.util.URI" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
@@ -18,8 +18,12 @@
     <li class="nav-item active">
       <a class="nav-link" href="#">Add Employee</a>
     </li>
-    <li class="nav-item">
+<!--     <li class="nav-item">
       <a class="nav-link" href="employeeTypeRegistrationPage">Employee Type</a>
+    </li> -->
+    
+    <li class="nav-item">
+      <a class="nav-link" href="<%=URI.CUSTOMER_INFORMATION_PAGE%>">Customer Information</a>
     </li>
   </ul>
 </nav>
