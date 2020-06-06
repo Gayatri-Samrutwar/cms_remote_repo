@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cms.dao.EmployeeInfoRepository;
+import com.cms.dto.EmployeeInfoDTO;
 import com.cms.model.EmployeeInfo;
+import com.cms.util.ObjectMapper;
 
 
 
@@ -19,16 +21,24 @@ public class EmployeeInfoService {
 	@Autowired
 	private EmployeeInfoRepository employeeRepository;
 	
-	public Collection<EmployeeInfo> findAllEmployeeInformation()
+	public Collection<EmployeeInfoDTO> findAllEmployeeInformation()
 	{
-		List<EmployeeInfo> employeeRegistration = new ArrayList<EmployeeInfo>();
+		List<EmployeeInfoDTO> employeeRegistration = new ArrayList<EmployeeInfoDTO>();
 		
 		for(EmployeeInfo employeeInfo : employeeRepository.findAll())
 		{
 			
-			employeeRegistration.add(employeeInfo);
+			employeeRegistration.add(ObjectMapper.modelToDto(employeeInfo));
 		}
 		return employeeRegistration;
+	}
+	
+	public EmployeeInfoDTO findAllEmployeeInformationById(String id) {
+		return ObjectMapper.modelToDto(employeeRepository.findById(id).orElse(null));
+	}
+	
+	public void save(EmployeeInfoDTO employeInfo) {
+		
 	}
 	
 	public void delete(String id)
