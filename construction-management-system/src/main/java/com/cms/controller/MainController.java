@@ -3,6 +3,7 @@ package com.cms.controller;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,6 +30,10 @@ public class MainController {
 
 	@Autowired
 	private EmployeeInfoService employeeInfoService;
+	
+	@Value("${com.cms.primaryKeyLength}")
+	private int SHORT_ID_LENGTH;
+	
 	
 	@GetMapping("/")
 	public String init() {
@@ -65,10 +70,11 @@ public class MainController {
 
 	@PostMapping(URI.CUSTOMER_INFORMATION_SAVE)
 	public ModelAndView saveCustomerInformation(CustomerInfoVO customerInfo) {
-		customerInfo.setCustomerId(""+(customerInfo.getCustomerName()+customerInfo.getCustomerMobileNo()).hashCode());
+		customerInfo.setCustomerId(customerInfo.getCustomerMobileNo().hashCode()+"");
 		ModelAndView mv = new ModelAndView(URI.CUSTOMER_INFORMATION_JSP);
 		customerInfoService.saveCustomerInfo(ObjectMapper.voToDto(customerInfo));
-		mv.addObject("customerInformation", customerInfoService.findAllCustomerInformation());
+		mv.addObject("customerInformation", customerInfoService.findAllCustomerInformation().stream()
+				.map(x -> ObjectMapper.dtoToVo(x)).collect(Collectors.toList()));
 		mv.addObject("mode", "CUSTOMER_VIEW");
 		return mv;
 	}
@@ -77,7 +83,8 @@ public class MainController {
 	public ModelAndView updateCustomerInformation(CustomerInfoVO customerInfo) {
 		ModelAndView mv = new ModelAndView(URI.CUSTOMER_INFORMATION_JSP);
 		customerInfoService.saveCustomerInfo(ObjectMapper.voToDto(customerInfo));
-		mv.addObject("customerInformation", customerInfoService.findAllCustomerInformation());
+		mv.addObject("customerInformation", customerInfoService.findAllCustomerInformation().stream()
+				.map(x -> ObjectMapper.dtoToVo(x)).collect(Collectors.toList()));
 		mv.addObject("mode", "CUSTOMER_VIEW");
 		return mv;
 	}
